@@ -5,27 +5,35 @@ const gallery = document.querySelector('.gallery');
 function galleryRender(images){
     const galleryMarkup = images
     .map(image => {
-        const { id, largeimageURl, webformatURL, tags, likes, views, comments, downloads } = image;
+        const { id, largeimageURL, webformatURL, tags, likes, views, comments, downloads } = image;
 
         return `
-            <div class="photo-card">
-                <img src="" alt="" loading="lazy" />
-                <div class="info">
-                    <p class="info-item">
-                    <b>Likes</b>
-                    </p>
-                    <p class="info-item">
-                    <b>Views</b>
-                    </p>
-                    <p class="info-item">
-                    <b>Comments</b>
-                    </p>
-                    <p class="info-item">
-                    <b>Downloads</b>
-                    </p>
+            <a class="gallery-link" href="${largeimageURL}">    
+                <div class="photo-card" id=${id}>
+                    <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+                    <div class="info">
+                        <p class="info-item">
+                        <b>Likes</b>
+                        ${likes}
+                        </p>
+                        <p class="info-item">
+                        <b>Views</b>
+                        ${views}
+                        </p>
+                        <p class="info-item">
+                        <b>Comments</b>
+                        ${comments}
+                        </p>
+                        <p class="info-item">
+                        <b>Downloads</b>
+                        ${downloads}
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </a>
         `
-    }
-    )
+    })
+    .join('');
+
+    gallery.insertAdjacentElement('afterbegin', galleryMarkup);
 }
