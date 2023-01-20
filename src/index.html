@@ -1,22 +1,34 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./css/index.css" />
-    <script type="module" src="./index.js"></script>
+    <title>Gallery</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-    </form>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
+    <div class="search-container">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+          class="search-form__input"
+        />
+        <button type="submit" class="search-form__button">Search</button>
+      </form>
+    </div>
+    
+    <div class="gallery-container">
+      <div class="gallery"></div>
+      <button type="button" class="load-more-btn is-hidden">Load more</button>
+    </div>
+    
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
